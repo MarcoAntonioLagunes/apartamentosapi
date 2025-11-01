@@ -31,13 +31,13 @@ public class ReservaService {
 
     public Optional<ReservaModel> updateReserva(Long id, ReservaModel reservaDetails) {
         return reservaRepository.findById(id)
-                .map(reservaToUpdate -> {
+                                .map(reservaToUpdate -> {
                     reservaToUpdate.setCliente(reservaDetails.getCliente());
                     reservaToUpdate.setPropiedad(reservaDetails.getPropiedad());
-                    reservaToUpdate.setFecha_inicio(reservaDetails.getFecha_inicio());
-                    reservaToUpdate.setFecha_fin(reservaDetails.getFecha_fin());
-                    reservaToUpdate.setNum_huespedes(reservaDetails.getNum_huespedes());
-                    reservaToUpdate.setPrecio_total(reservaDetails.getPrecio_total());
+                    reservaToUpdate.setFechaInicio(reservaDetails.getFechaInicio());
+                    reservaToUpdate.setFechaFin(reservaDetails.getFechaFin());
+                    reservaToUpdate.setNumHuespedes(reservaDetails.getNumHuespedes());
+                    reservaToUpdate.setPrecioTotal(reservaDetails.getPrecioTotal());
                     reservaToUpdate.setEstado(reservaDetails.getEstado());
                     reservaToUpdate.setObservaciones(reservaDetails.getObservaciones());
                     return reservaRepository.save(reservaToUpdate);

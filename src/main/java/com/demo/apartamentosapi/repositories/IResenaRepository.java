@@ -7,10 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface IResenaRepository extends JpaRepository<ResenaModel, Integer> {
-    List<ResenaModel> findByReservacionId(Integer reservacionId);
-    @Query("SELECT r FROM ResenaModel r WHERE r.reservacion.propiedad.id_propiedad = :propiedadId")
+    @Query("SELECT r FROM ResenaModel r WHERE r.reservacion.idReserva = :reservacionId")
+    List<ResenaModel> findByReservacionIdReserva(@Param("reservacionId") Long reservacionId);
+        @Query("SELECT r FROM ResenaModel r WHERE r.reservacion.propiedad.idPropiedad = :propiedadId")
     List<ResenaModel> findByPropiedadId(@Param("propiedadId") Long propiedadId);
-    @Query("SELECT r FROM ResenaModel r WHERE r.reservacion.cliente.id_cliente = :clienteId")
+        @Query("SELECT r FROM ResenaModel r WHERE r.reservacion.cliente.id = :clienteId")
     List<ResenaModel> findByClienteId(@Param("clienteId") Long clienteId);
     @Query("SELECT r FROM ResenaModel r WHERE r.respuestaPropietario IS NOT NULL")
     List<ResenaModel> findResenasWithRespuestaPropietario();

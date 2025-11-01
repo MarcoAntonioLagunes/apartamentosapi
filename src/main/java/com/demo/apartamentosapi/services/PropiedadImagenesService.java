@@ -32,9 +32,9 @@ public class PropiedadImagenesService {
             });
     }
     public List<PropiedadImagenesModel> getImagenesByPropiedad(Long propiedadId) {
-        return propiedadImagenesRepository.findByPropiedadIdPropiedadOrderByOrdenAsc(propiedadId);
+                        return propiedadImagenesRepository.findByPropiedadIdPropiedadOrderByOrdenAsc(propiedadId);
     }
     public Optional<PropiedadImagenesModel> getImagenPrincipalByPropiedad(Long propiedadId) {
-        return propiedadImagenesRepository.findByPropiedadIdPropiedadAndEsPrincipal(propiedadId, true);
+                        return propiedadImagenesRepository.findByPropiedadIdPropiedadAndEsPrincipal(propiedadId, true);
     }
 }

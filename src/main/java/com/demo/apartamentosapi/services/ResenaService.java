@@ -41,8 +41,8 @@ public class ResenaService {
                 return resenaRepository.save(resena);
             });
     }
-    public List<ResenaModel> getResenasByReservacion(Integer reservacionId) {
-        return resenaRepository.findByReservacionId(reservacionId);
+        public List<ResenaModel> getResenasByReservacion(Long reservacionId) {
+        return resenaRepository.findByReservacionIdReserva(reservacionId);
     }
     public List<ResenaModel> getResenasByPropiedad(Long propiedadId) {
         return resenaRepository.findByPropiedadId(propiedadId);

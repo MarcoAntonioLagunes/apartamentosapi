@@ -34,7 +34,7 @@ import lombok.Setter;
 public class PropiedadModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_propiedad;
+        private Long idPropiedad;
     @NotNull(message = "El propietario es requerido")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_propietario", nullable = false)
@@ -62,7 +62,7 @@ public class PropiedadModel {
     private String ciudad;
     @Min(value = 10000, message = "El código postal debe ser de 5 dígitos")
     @Column(name = "codigo_postal", nullable = false, length = 5)
-    private int codigo_postal;
+        private int codigoPostal;
     @NotBlank(message = "El país es requerido")
     @Size(max = 50, message = "El país no puede exceder 50 caracteres")
     @Column(name = "pais", nullable = false, length = 50)
@@ -77,19 +77,19 @@ public class PropiedadModel {
     private double longitud;
     @Positive(message = "El precio por noche debe ser mayor a 0")
     @Column(name = "precio_noche", nullable = false)
-    private double precio_noche;
+        private double precioNoche;
     @Min(value = 1, message = "La capacidad debe ser al menos 1 persona")
     @Column(name = "capacidad", nullable = false)
     private int capacidad;
     @Min(value = 1, message = "Debe tener al menos 1 habitación")
     @Column(name = "num_habitaciones", nullable = false)
-    private int num_habitaciones;
+        private int numHabitaciones;
     @Min(value = 1, message = "Debe tener al menos 1 baño")
     @Column(name = "num_banos", nullable = false)
-    private int num_banos;
+        private int numBanos;
     @Min(value = 10, message = "Los metros cuadrados deben ser al menos 10")
     @Column(name = "metro_cuadrados", nullable = false)
-    private int metro_cuadrados;
+        private int metroCuadrados;
     @Size(max = 300, message = "Las comodidades no pueden exceder 300 caracteres")
     @Column(name = "comodidades", length = 300)
     private String comodidades;
@@ -101,19 +101,19 @@ public class PropiedadModel {
     @Column(name = "estado_propiedad", nullable = false)
     private EstadoPropiedad estadoPropiedad;
     @Column(name = "fecha_registro", nullable = false)
-    private LocalDateTime fecha_registro;
+        private LocalDateTime fechaRegistro;
     @Column(name = "fecha_actualizacion", nullable = false)
-    private LocalDateTime fecha_actualizacion;
-    @PrePersist
+        private LocalDateTime fechaActualizacion;
+        @PrePersist
     public void onPrePersist() {
-        if (this.fecha_registro == null) {
-            this.fecha_registro = LocalDateTime.now();
+        if (this.fechaRegistro == null) {
+            this.fechaRegistro = LocalDateTime.now();
         }
-        this.fecha_actualizacion = LocalDateTime.now();
+        this.fechaActualizacion = LocalDateTime.now();
     }
     @PreUpdate
     public void onPreUpdate() {
-        this.fecha_actualizacion = LocalDateTime.now();
+        this.fechaActualizacion = LocalDateTime.now();
     }
     public enum EstadoPropiedad {
         ACTIVA,

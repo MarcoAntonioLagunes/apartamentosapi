@@ -10,7 +10,7 @@ public interface IMensajeRepository extends JpaRepository<MensajeModel, Integer>
     List<MensajeModel> findByRemitenteId(Long remitenteId);
     List<MensajeModel> findByDestinatarioId(Long destinatarioId);
     List<MensajeModel> findByDestinatarioIdAndLeido(Long destinatarioId, Boolean leido);
-    List<MensajeModel> findByReservacionId(Integer reservacionId);
+        List<MensajeModel> findByReservacionIdReserva(Long reservacionId);
     @Query("SELECT m FROM MensajeModel m WHERE " +
            "(m.remitente.id = :clienteId1 AND m.destinatario.id = :clienteId2) OR " +
            "(m.remitente.id = :clienteId2 AND m.destinatario.id = :clienteId1) " +

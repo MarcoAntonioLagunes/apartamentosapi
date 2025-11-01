@@ -48,7 +48,7 @@ public class MensajeController {
     }
     @GetMapping("/reservacion/{reservacionId}")
     public List<MensajeModel> getMensajesByReservacion(@PathVariable Integer reservacionId) {
-        return mensajeService.getMensajesByReservacion(reservacionId);
+        return mensajeService.getMensajesByReservacion(Long.valueOf(reservacionId));
     }
     @PostMapping
     public MensajeModel createMensaje(@RequestBody MensajeModel mensaje) {

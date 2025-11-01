@@ -42,11 +42,11 @@ public class DisponibilidadService {
     }
 
     public List<DisponibilidadModel> getDisponibilidadesByPropiedad(Long propiedadId) {
-        return disponibilidadRepository.findByPropiedadIdPropiedad(propiedadId);
+                        return disponibilidadRepository.findByPropiedadIdPropiedad(propiedadId);
     }
 
     public List<DisponibilidadModel> getDisponibilidadesByPropiedadAndDisponible(Long propiedadId, Boolean disponible) {
-        return disponibilidadRepository.findByPropiedadIdPropiedadAndDisponible(propiedadId, disponible);
+                        return disponibilidadRepository.findByPropiedadIdPropiedadAndDisponible(propiedadId, disponible);
     }
 
     public List<DisponibilidadModel> getDisponibilidadesByFechaRange(LocalDate start, LocalDate end) {

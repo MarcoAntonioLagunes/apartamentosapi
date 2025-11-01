@@ -27,7 +27,7 @@ import lombok.Setter;
 public class ReservaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_reserva;
+        private Long idReserva;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -37,22 +37,22 @@ public class ReservaModel {
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private PropiedadModel propiedad;
     @Column(name = "fecha_inicio", nullable = false)
-    private LocalDateTime fecha_inicio;
+        private LocalDateTime fechaInicio;
     @Column(name = "fecha_fin", nullable = false)
-    private LocalDateTime fecha_fin;
+        private LocalDateTime fechaFin;
     @Column(name = "num_huespedes", nullable = false)
-    private Integer num_huespedes;
+        private Integer numHuespedes;
     @Column(name = "precio_total", nullable = false)
-    private Double precio_total;
+        private Double precioTotal;
     @Enumerated(EnumType.STRING)
     @Column(name = "estado_reserva", nullable = false)
     private EstadoReserva estado;
     @Column(name = "observaciones", length = 500)
     private String observaciones;
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime created_at;
+        private LocalDateTime createdAt;
     @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updated_at;
+        private LocalDateTime updatedAt;
     public enum EstadoReserva {
         PENDIENTE,
         CONFIRMADA,
@@ -61,16 +61,16 @@ public class ReservaModel {
     }
     @PrePersist
     public void prePersist() {
-        if (this.created_at == null) {
-            this.created_at = LocalDateTime.now();
+                if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
         }
-        this.updated_at = LocalDateTime.now();
+                this.updatedAt = LocalDateTime.now();
         if (this.estado == null) {
             this.estado = EstadoReserva.PENDIENTE;
         }
     }
     @PreUpdate
     public void preUpdate() {
-        this.updated_at = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 }

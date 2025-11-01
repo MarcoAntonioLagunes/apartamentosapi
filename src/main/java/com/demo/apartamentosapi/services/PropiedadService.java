@@ -31,22 +31,22 @@ public class PropiedadService {
 
     public Optional<PropiedadModel> updatePropiedad(Long id, PropiedadModel propiedadDetails) {
         return propiedadRepository.findById(id)
-                .map(propiedadToUpdate -> {
+                                .map(propiedadToUpdate -> {
                     propiedadToUpdate.setPropietario(propiedadDetails.getPropietario());
                     propiedadToUpdate.setTipo(propiedadDetails.getTipo());
                     propiedadToUpdate.setTitulo(propiedadDetails.getTitulo());
                     propiedadToUpdate.setDescripcion(propiedadDetails.getDescripcion());
                     propiedadToUpdate.setDireccion(propiedadDetails.getDireccion());
                     propiedadToUpdate.setCiudad(propiedadDetails.getCiudad());
-                    propiedadToUpdate.setCodigo_postal(propiedadDetails.getCodigo_postal());
+                    propiedadToUpdate.setCodigoPostal(propiedadDetails.getCodigoPostal());
                     propiedadToUpdate.setPais(propiedadDetails.getPais());
                     propiedadToUpdate.setLatitud(propiedadDetails.getLatitud());
                     propiedadToUpdate.setLongitud(propiedadDetails.getLongitud());
-                    propiedadToUpdate.setPrecio_noche(propiedadDetails.getPrecio_noche());
+                    propiedadToUpdate.setPrecioNoche(propiedadDetails.getPrecioNoche());
                     propiedadToUpdate.setCapacidad(propiedadDetails.getCapacidad());
-                    propiedadToUpdate.setNum_habitaciones(propiedadDetails.getNum_habitaciones());
-                    propiedadToUpdate.setNum_banos(propiedadDetails.getNum_banos());
-                    propiedadToUpdate.setMetro_cuadrados(propiedadDetails.getMetro_cuadrados());
+                    propiedadToUpdate.setNumHabitaciones(propiedadDetails.getNumHabitaciones());
+                    propiedadToUpdate.setNumBanos(propiedadDetails.getNumBanos());
+                    propiedadToUpdate.setMetroCuadrados(propiedadDetails.getMetroCuadrados());
                     propiedadToUpdate.setComodidades(propiedadDetails.getComodidades());
                     propiedadToUpdate.setReglas(propiedadDetails.getReglas());
                     propiedadToUpdate.setEstadoPropiedad(propiedadDetails.getEstadoPropiedad());

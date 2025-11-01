@@ -11,12 +11,12 @@ import com.demo.apartamentosapi.models.DisponibilidadModel;
 
 @Repository
 public interface IDisponibilidadRepository extends JpaRepository<DisponibilidadModel, Integer> {
-    List<DisponibilidadModel> findByPropiedadIdPropiedad(Long propiedadId);
+            List<DisponibilidadModel> findByPropiedadIdPropiedad(Long propiedadId);
 
     List<DisponibilidadModel> findByFechaBetween(LocalDate start, LocalDate end);
 
-    List<DisponibilidadModel> findByPropiedadIdPropiedadAndDisponible(Long propiedadId, Boolean disponible);
+            List<DisponibilidadModel> findByPropiedadIdPropiedadAndDisponible(Long propiedadId, Boolean disponible);
 
-    @Query("SELECT d FROM DisponibilidadModel d WHERE d.propiedad.id_propiedad = :propiedadId AND d.fecha = :fecha")
+        @Query("SELECT d FROM DisponibilidadModel d WHERE d.propiedad.idPropiedad = :propiedadId AND d.fecha = :fecha")
     List<DisponibilidadModel> findByPropiedadAndFecha(@Param("propiedadId") Long propiedadId, @Param("fecha") LocalDate fecha);
 }

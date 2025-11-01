@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository;
 import com.demo.apartamentosapi.models.PagosModel;
 @Repository
 public interface IPagosRepository extends JpaRepository<PagosModel, Long> {
-    @Query("SELECT p FROM PagosModel p WHERE p.reserva.id_reserva = :reservaId")
+        @Query("SELECT p FROM PagosModel p WHERE p.reserva.idReserva = :reservaId")
     List<PagosModel> findByReservaId(@Param("reservaId") Long reservaId);
-    @Query("SELECT p FROM PagosModel p WHERE p.estado_pago = :estadoPago")
+        @Query("SELECT p FROM PagosModel p WHERE p.estadoPago = :estadoPago")
     List<PagosModel> findByEstadoPago(@Param("estadoPago") PagosModel.EstadoPago estadoPago);
-    @Query("SELECT p FROM PagosModel p WHERE p.metodo_pago = :metodoPago")
+        @Query("SELECT p FROM PagosModel p WHERE p.metodoPago = :metodoPago")
     List<PagosModel> findByMetodoPago(@Param("metodoPago") PagosModel.MetodoPago metodoPago);
-    @Query("SELECT p FROM PagosModel p WHERE p.reserva.id_reserva = :reservaId AND p.estado_pago = :estadoPago")
+            @Query("SELECT p FROM PagosModel p WHERE p.reserva.idReserva = :reservaId AND p.estadoPago = :estadoPago")
     List<PagosModel> findByReservaIdAndEstadoPago(@Param("reservaId") Long reservaId, @Param("estadoPago") PagosModel.EstadoPago estadoPago);
 }

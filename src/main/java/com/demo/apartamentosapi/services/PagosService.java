@@ -23,14 +23,14 @@ public class PagosService {
     }
     public Optional<PagosModel> updatePago(Long id, PagosModel pagoDetails) {
         return pagosRepository.findById(id)
-            .map(pagoToUpdate -> {
+                        .map(pagoToUpdate -> {
                 pagoToUpdate.setReserva(pagoDetails.getReserva());
                 pagoToUpdate.setMonto(pagoDetails.getMonto());
-                pagoToUpdate.setMetodo_pago(pagoDetails.getMetodo_pago());
-                pagoToUpdate.setEstado_pago(pagoDetails.getEstado_pago());
-                pagoToUpdate.setFecha_pago(pagoDetails.getFecha_pago());
+                pagoToUpdate.setMetodoPago(pagoDetails.getMetodoPago());
+                pagoToUpdate.setEstadoPago(pagoDetails.getEstadoPago());
+                pagoToUpdate.setFechaPago(pagoDetails.getFechaPago());
                 pagoToUpdate.setReferenciaPago(pagoDetails.getReferenciaPago());
-                pagoToUpdate.setDetalles_pago(pagoDetails.getDetalles_pago());
+                pagoToUpdate.setDetallesPago(pagoDetails.getDetallesPago());
                 return pagosRepository.save(pagoToUpdate);
             });
     }

@@ -54,8 +54,8 @@ public class MensajeService {
         return mensajeRepository.findByDestinatarioIdAndLeido(clienteId, false);
     }
 
-    public List<MensajeModel> getMensajesByReservacion(Integer reservacionId) {
-        return mensajeRepository.findByReservacionId(reservacionId);
+        public List<MensajeModel> getMensajesByReservacion(Long reservacionId) {
+        return mensajeRepository.findByReservacionIdReserva(reservacionId);
     }
 
     public List<MensajeModel> getConversacion(Long clienteId1, Long clienteId2) {

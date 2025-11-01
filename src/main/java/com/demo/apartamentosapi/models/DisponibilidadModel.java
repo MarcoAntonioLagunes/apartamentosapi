@@ -28,7 +28,7 @@ import lombok.Setter;
 public class DisponibilidadModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_disponibilidad;
+        private Integer idDisponibilidad;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_propiedad", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

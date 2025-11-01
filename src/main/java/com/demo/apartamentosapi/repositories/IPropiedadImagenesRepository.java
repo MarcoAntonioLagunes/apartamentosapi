@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public interface IPropiedadImagenesRepository extends JpaRepository<PropiedadImagenesModel, Integer> {
-    List<PropiedadImagenesModel> findByPropiedadIdPropiedad(Long propiedadId);
-    List<PropiedadImagenesModel> findByPropiedadIdPropiedadOrderByOrdenAsc(Long propiedadId);
-    Optional<PropiedadImagenesModel> findByPropiedadIdPropiedadAndEsPrincipal(Long propiedadId, Boolean esPrincipal);
+            List<PropiedadImagenesModel> findByPropiedadIdPropiedad(Long propiedadId);
+            List<PropiedadImagenesModel> findByPropiedadIdPropiedadOrderByOrdenAsc(Long propiedadId);
+            Optional<PropiedadImagenesModel> findByPropiedadIdPropiedadAndEsPrincipal(Long propiedadId, Boolean esPrincipal);
 }

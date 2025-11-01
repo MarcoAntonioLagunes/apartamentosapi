@@ -8,7 +8,7 @@ import com.demo.apartamentosapi.models.ReservaModel;
 @Repository
 public interface IReservaRepository extends JpaRepository<ReservaModel, Long> {
     List<ReservaModel> findByClienteId(Long clienteId);
-    @Query("SELECT r FROM ReservaModel r WHERE r.propiedad.id_propiedad = :propiedadId")
+        @Query("SELECT r FROM ReservaModel r WHERE r.propiedad.idPropiedad = :propiedadId")
     List<ReservaModel> findByPropiedadId(@Param("propiedadId") Long propiedadId);
     List<ReservaModel> findByEstado(ReservaModel.EstadoReserva estado);
     List<ReservaModel> findByClienteIdAndEstado(Long clienteId, ReservaModel.EstadoReserva estado);

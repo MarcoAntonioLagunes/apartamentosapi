@@ -27,7 +27,7 @@ import lombok.Setter;
 public class PagosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_pago;
+        private Long idPago;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_reserva", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -36,18 +36,18 @@ public class PagosModel {
     private Double monto;
     @Enumerated(EnumType.STRING)
     @Column(name = "metodo_pago", nullable = false)
-    private MetodoPago metodo_pago;
+        private MetodoPago metodoPago;
     @Enumerated(EnumType.STRING)
     @Column(name = "estado_pago", nullable = false)
-    private EstadoPago estado_pago;
+        private EstadoPago estadoPago;
     @Column(name = "fecha_pago", nullable = false)
-    private LocalDate fecha_pago;
+        private LocalDate fechaPago;
     @Column(name = "referencia_pago", nullable = false, length = 100)
     private String referenciaPago;
     @Column(name = "detalles_pago", length = 500)
-    private String detalles_pago;
+        private String detallesPago;
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime created_at;
+        private LocalDateTime createdAt;
     public enum MetodoPago {
         TARJETA_CREDITO,
         TARJETA_DEBITO,
@@ -60,16 +60,16 @@ public class PagosModel {
         FALLIDO,
         REEMBOLSADO
     }
-    @PrePersist
+        @PrePersist
     public void prePersist() {
-        if (this.created_at == null) {
-            this.created_at = LocalDateTime.now();
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
         }
-        if (this.fecha_pago == null) {
-            this.fecha_pago = LocalDate.now();
+        if (this.fechaPago == null) {
+            this.fechaPago = LocalDate.now();
         }
-        if (this.estado_pago == null) {
-            this.estado_pago = EstadoPago.PENDIENTE;
+        if (this.estadoPago == null) {
+            this.estadoPago = EstadoPago.PENDIENTE;
         }
     }
 }

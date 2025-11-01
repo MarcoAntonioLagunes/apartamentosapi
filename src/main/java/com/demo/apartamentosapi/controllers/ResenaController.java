@@ -36,7 +36,7 @@ public class ResenaController {
     }
 
     @GetMapping("/reservacion/{reservacionId}")
-    public List<ResenaModel> getResenasByReservacion(@PathVariable Integer reservacionId) {
+    public List<ResenaModel> getResenasByReservacion(@PathVariable Long reservacionId) {
         return resenaService.getResenasByReservacion(reservacionId);
     }
 
