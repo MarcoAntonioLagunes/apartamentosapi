@@ -1,0 +1,23 @@
+package com.demo.apartamentosapi.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.demo.apartamentosapi.models.ReservaModel;
+
+@Repository
+public interface IReservaRepository extends JpaRepository<ReservaModel, Long> {
+
+    List<ReservaModel> findByClienteId(Long clienteId);
+
+    @Query("SELECT r FROM ReservaModel r WHERE r.propiedad.id_propiedad = :propiedadId")
+    List<ReservaModel> findByPropiedadId(@Param("propiedadId") Long propiedadId);
+
+    List<ReservaModel> findByEstado(ReservaModel.EstadoReserva estado);
+
+    List<ReservaModel> findByClienteIdAndEstado(Long clienteId, ReservaModel.EstadoReserva estado);
+}
